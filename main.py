@@ -1,11 +1,13 @@
 #!usr/bin/python
+import os
 import paramiko
 import config
+from getpass import getpass
 
 # Define your Cisco device credentials
 ip_address = config.HOST
-username = config.USERNAME
-password = config.PASSWORD
+username = input("Enter Username: ")
+password = getpass()
 
 # Create an SSH client
 ssh_client = paramiko.SSHClient()
