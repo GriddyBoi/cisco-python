@@ -3,7 +3,7 @@ import paramiko
 import config
 
 # Define your Cisco device credentials
-ip_address = "10.1.10.16"
+ip_address = config.HOST
 username = config.USERNAME
 password = config.PASSWORD
 
@@ -15,7 +15,7 @@ ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh_client.connect(ip_address, username=username, password=password)
 
 # Execute commands
-stdin, stdout, stderr = ssh_client.exec_command("show version")
+stdin, stdout, stderr = ssh_client.exec_command("sh int status")
 print(stdout.read().decode())
 
 # Close the connection
